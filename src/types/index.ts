@@ -17,3 +17,11 @@ export interface Skill {
   category: "frontend" | "backend" | "database" | "tools"
   level: "básico" | "intermedio" | "avanzado"
 }
+
+export interface TimelineItem {
+  title: string
+  subtitle: string
+  description?: string
+  date: string
+  type: "work" | "education"
+}
