@@ -1,4 +1,5 @@
 import { Skill } from "@/types"
+import { FadeIn } from "@/components/ui/FadeIn"
 
 const categoryLabel: Record<Skill["category"], string> = {
   frontend: "Frontend",
@@ -24,8 +25,9 @@ export const SkillsGrid = ({ skills }: SkillsGridProps) => {
 
   return (
     <div className="grid gap-8 sm:grid-cols-2">
-      {categories.map((category) => (
-        <div key={category}>
+      {categories.map((category, i) => (
+        <FadeIn key={category} delay={i * 0.1}>
+        <div>
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-text-muted">
             {categoryLabel[category]}
           </h3>
@@ -47,6 +49,7 @@ export const SkillsGrid = ({ skills }: SkillsGridProps) => {
               ))}
           </ul>
         </div>
+        </FadeIn>
       ))}
     </div>
   )

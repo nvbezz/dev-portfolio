@@ -1,5 +1,6 @@
 import { Project } from "@/types"
 import { ProjectCard } from "@/components/projects/ProjectCard"
+import { FadeIn } from "@/components/ui/FadeIn"
 
 type ProjectGridProps = {
   projects: Project[]
@@ -16,8 +17,10 @@ export const ProjectGrid = ({ projects }: ProjectGridProps) => {
 
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project) => (
-        <ProjectCard key={project.slug} project={project} />
+      {projects.map((project, i) => (
+        <FadeIn key={project.slug} delay={i * 0.1}>
+          <ProjectCard project={project} />
+        </FadeIn>
       ))}
     </div>
   )
