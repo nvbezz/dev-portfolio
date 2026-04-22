@@ -96,8 +96,3 @@ feature/* | fix/* | style/* | content/* | docs/* | chore/*
 
 Commits en [Conventional Commits](https://www.conventionalcommits.org/).
 
----
-
-## Licencia
-
-MIT
