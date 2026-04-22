@@ -23,11 +23,10 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg-primary/80 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-accent">YC</span>
-          <span className="hidden text-sm font-medium text-text-primary sm:block">
-            Yeider Catari
-          </span>
+        <Link href="/" className="flex items-center gap-2 font-mono text-sm font-semibold">
+          <span className="text-accent">&lt;</span>
+          <span className="text-text-primary">Yeider Catari</span>
+          <span className="text-accent">/&gt;</span>
         </Link>
 
         <div className="flex items-center gap-6">
