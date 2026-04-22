@@ -7,6 +7,7 @@ type ButtonProps = {
   external?: boolean
   onClick?: () => void
   className?: string
+  disabled?: boolean
 }
 
 export const Button = ({
@@ -16,6 +17,7 @@ export const Button = ({
   external = false,
   onClick,
   className = "",
+  disabled = false,
 }: ButtonProps) => {
   const base =
     "inline-flex items-center gap-2 rounded-lg px-5 py-2.5 font-medium transition-colors"
@@ -42,7 +44,7 @@ export const Button = ({
   }
 
   return (
-    <button onClick={onClick} className={classes}>
+    <button onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   )

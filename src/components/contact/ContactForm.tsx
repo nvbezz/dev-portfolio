@@ -3,12 +3,14 @@
 import { useState } from "react"
 import { Send } from "lucide-react"
 import { Button } from "@/components/ui/Button"
+import Turnstile from "react-turnstile"
 
 type FormState = "idle" | "loading" | "success" | "error"
 
 export const ContactForm = () => {
   const [state, setState] = useState<FormState>("idle")
   const [error, setError] = useState("")
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -20,6 +22,7 @@ export const ContactForm = () => {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      turnstileToken,
     }
 
     try {
@@ -36,6 +39,7 @@ export const ContactForm = () => {
 
       setState("success")
       form.reset()
+      setTurnstileToken(null)
     } catch (err) {
       setError(err instanceof Error ? err.message : "No se pudo enviar el mensaje.")
       setState("error")
@@ -90,6 +94,12 @@ export const ContactForm = () => {
         />
       </div>
 
+      <Turnstile
+        sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+        onVerify={(token) => setTurnstileToken(token)}
+        size="invisible"
+      />
+
       {state === "success" && (
         <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400">
           ¡Mensaje enviado! Te responderé pronto.
@@ -105,7 +115,8 @@ export const ContactForm = () => {
       <div>
         <Button
           variant="primary"
-          className={state === "loading" ? "opacity-60 cursor-not-allowed" : ""}
+          disabled={!turnstileToken || state === "loading"}
+          className={!turnstileToken || state === "loading" ? "opacity-60 cursor-not-allowed" : ""}
         >
           <Send size={16} />
           {state === "loading" ? "Enviando..." : "Enviar mensaje"}
