@@ -25,5 +25,5 @@ export interface TimelineItem {
   subtitle: string
   description?: string
   date: string
-  type: "work" | "education"
+  type: "work" | "education" | "certification"
 }

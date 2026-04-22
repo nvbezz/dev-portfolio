@@ -11,6 +11,27 @@ export const workExperience: TimelineItem[] = [
   },
 ]
 
+export const certifications: TimelineItem[] = [
+  {
+    title: "Software Testing desde cero: MasterClass todo en 1",
+    subtitle: "Udemy",
+    date: "2025",
+    type: "certification",
+  },
+  {
+    title: "Selenium con Java y Cucumber: El curso definitivo",
+    subtitle: "Udemy",
+    date: "2025",
+    type: "certification",
+  },
+  {
+    title: "Java a Profundidad",
+    subtitle: "Udemy",
+    date: "2025",
+    type: "certification",
+  },
+]
+
 export const education: TimelineItem[] = [
   {
     title: "Ingeniería en Informática",

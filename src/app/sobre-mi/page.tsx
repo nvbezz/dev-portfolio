@@ -1,5 +1,5 @@
 import { skills } from "@/data/skills"
-import { workExperience, education } from "@/data/experience"
+import { workExperience, education, certifications } from "@/data/experience"
 import { SkillsGrid } from "@/components/about/SkillsGrid"
 import { Timeline } from "@/components/about/Timeline"
 
@@ -34,9 +34,14 @@ export default function SobreMiPage() {
         <Timeline items={workExperience} />
       </section>
 
-      <section>
+      <section className="mb-16">
         <h2 className="mb-8 text-2xl font-bold text-text-primary">Educación</h2>
         <Timeline items={education} />
+      </section>
+
+      <section>
+        <h2 className="mb-8 text-2xl font-bold text-text-primary">Certificaciones</h2>
+        <Timeline items={certifications} />
       </section>
     </article>
   )
