@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
-import { Sun, Moon } from "lucide-react"
+import { Sun, Moon, Menu, X } from "lucide-react"
 
 const links = [
   { href: "/", label: "Inicio" },
@@ -17,8 +17,13 @@ export const Navbar = () => {
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => setMounted(true), [])
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg-primary/80 backdrop-blur-sm">
@@ -29,7 +34,7 @@ export const Navbar = () => {
           <span className="text-accent">/&gt;</span>
         </Link>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <ul className="hidden items-center gap-6 sm:flex">
             {links.map(({ href, label }) => (
               <li key={href}>
@@ -56,8 +61,37 @@ export const Navbar = () => {
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           )}
+
+          <button
+            className="text-text-muted transition-colors hover:text-text-primary active:scale-90 transition-transform sm:hidden"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Abrir menú"
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </nav>
+
+      {menuOpen && (
+        <div className="border-t border-border bg-bg-primary shadow-md sm:hidden">
+          <ul className="flex flex-col px-6 py-4 gap-4">
+            {links.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={`block text-sm transition-colors py-1 active:opacity-50 ${
+                    pathname === href
+                      ? "text-accent"
+                      : "text-text-muted hover:text-accent"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   )
 }
