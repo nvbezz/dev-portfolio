@@ -86,7 +86,9 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
       </div>
 
       {gallery && gallery.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+        <div className="mt-12">
+          <h2 className="mb-6 text-xl font-bold text-text-primary">Imágenes del proyecto</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {gallery.map((src, i) => (
             <button
               key={i}
@@ -96,6 +98,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
               <Image src={src} alt={`${title} screenshot ${i + 1}`} fill className="object-cover transition-transform duration-300 hover:scale-105" />
             </button>
           ))}
+          </div>
         </div>
       )}
 
