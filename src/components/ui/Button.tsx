@@ -23,7 +23,7 @@ export const Button = ({
     "inline-flex items-center gap-2 rounded-lg px-5 py-2.5 font-medium transition-colors"
   const variants = {
     primary: "bg-accent text-bg-primary hover:bg-accent-hover",
-    outline: "border border-text-muted text-text-primary hover:bg-bg-card",
+    outline: "border border-text-muted text-text-primary hover:border-accent hover:text-accent",
   }
   const classes = `${base} ${variants[variant]} ${className}`
 
