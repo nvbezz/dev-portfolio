@@ -79,7 +79,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
             href={demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm text-white transition-colors hover:bg-accent-hover"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm text-bg-primary transition-colors hover:bg-accent-hover"
           >
             <ExternalLink size={16} /> Ver demo
           </a>

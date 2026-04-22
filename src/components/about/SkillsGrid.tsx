@@ -11,7 +11,7 @@ const categoryLabel: Record<Skill["category"], string> = {
 const levelColor: Record<Skill["level"], string> = {
   básico: "bg-border text-text-muted",
   intermedio: "bg-accent/20 text-accent",
-  avanzado: "bg-accent text-white",
+  avanzado: "bg-accent text-bg-primary",
 }
 
 type SkillsGridProps = {
