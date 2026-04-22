@@ -32,7 +32,7 @@ export const Hero = () => (
         className="mx-auto mb-10 max-w-xl text-lg text-text-muted"
         {...fadeUp(0.3)}
       >
-        Construyo productos digitales con foco en experiencia de usuario y código limpio.
+        Desarrollador Full Stack en formación y estudiante de Ingeniería en Duoc UC. Disfruto creando herramientas digitales que simplifican tareas, desde automatizaciones personalizadas hasta interfaces de usuario intuitivas.
       </motion.p>
       <motion.div
         className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
