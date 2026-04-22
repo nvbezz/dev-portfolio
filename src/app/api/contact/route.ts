@@ -13,13 +13,14 @@ export async function POST(req: NextRequest) {
   try {
     await resend.emails.send({
       from: "Portafolio <onboarding@resend.dev>",
-      to: "yeidercatari18@gmail.com",
+      to: process.env.CONTACT_EMAIL!,
       subject: `Nuevo mensaje de contacto — ${name}`,
       text: `Nombre: ${name}\nEmail: ${email}\n\n${message}`,
     })
 
     return NextResponse.json({ success: true })
-  } catch {
+  } catch (error) {
+    console.error("[contact] Resend error:", error)
     return NextResponse.json({ error: "No se pudo enviar el mensaje." }, { status: 500 })
   }
 }
