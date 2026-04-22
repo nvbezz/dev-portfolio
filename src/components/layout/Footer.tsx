@@ -18,7 +18,7 @@ export const Footer = () => {
             <FaGithub size={18} />
           </a>
           <a
-            href="https://linkedin.com/in/yeidercatari"
+            href="https://www.linkedin.com/in/yeider-catari-35b908363/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-text-muted transition-colors hover:text-text-primary"

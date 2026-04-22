@@ -32,7 +32,7 @@ export default function ContactoPage() {
             <FaGithub size={16} /> github.com/nvbezz
           </a>
           <a
-            href="https://linkedin.com/in/yeidercatari"
+            href="https://www.linkedin.com/in/yeider-catari-35b908363/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-text-primary"
