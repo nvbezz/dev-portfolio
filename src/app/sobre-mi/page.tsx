@@ -15,10 +15,13 @@ export default function SobreMiPage() {
         Sobre mí
       </h1>
       <p className="mb-16 max-w-xl text-lg leading-relaxed text-text-muted">
-        Soy un desarrollador Full Stack independiente apasionado por construir
-        productos digitales útiles. Me enfoco en escribir código limpio, crear
-        interfaces intuitivas y aprender constantemente. Trabajo de forma
-        autónoma con clientes y en proyectos propios.
+        Soy estudiante de Ingeniería Informática y desarrollador Full Stack apasionado
+        por la automatización y la inteligencia artificial. No solo escribo código; diseño
+        soluciones que resuelven problemas reales, desde sistemas de agendamiento inteligente
+        hasta arquitecturas de software escalables.
+        <br></br>
+        <br></br>
+        Me enfoco en el rendimiento y la experiencia de usuario, priorizando siempre la calidad técnica en cada entrega. Mi objetivo es transformar ideas complejas en productos digitales intuitivos, eficientes y, sobre todo, útiles para las personas.
       </p>
 
       <section className="mb-16">

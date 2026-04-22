@@ -6,24 +6,24 @@ export const workExperience: TimelineItem[] = [
     subtitle: "Independiente",
     description:
       "Desarrollo de aplicaciones web y automatizaciones para clientes. Bots, landing pages y herramientas a medida.",
-    date: "2023 — Presente",
+    date: "2024 — Presente",
     type: "work",
   },
 ]
 
 export const education: TimelineItem[] = [
   {
-    title: "Desarrollo Web Full Stack",
-    subtitle: "Autodidacta — Cursos online y proyectos propios",
-    description:
-      "Aprendizaje continuo a través de plataformas como Udemy, freeCodeCamp y documentación oficial.",
-    date: "2022 — Presente",
+    title: "Ingeniería en Informática",
+    subtitle: "Duoc UC — Sede Plaza Oeste",
+    description: "Ingeniería Informática con mención en Desarrollo de Software.",
+    date: "2024 — Actualidad",
     type: "education",
   },
   {
-    title: "[Tu título / institución]",
-    subtitle: "[Universidad o instituto]",
-    date: "20XX — 20XX",
+    title: "Analista Programador",
+    subtitle: "Duoc UC — Sede Plaza Oeste",
+    description: "Título técnico intermedio en desarrollo de software.",
+    date: "2024 — 2026",
     type: "education",
   },
 ]
