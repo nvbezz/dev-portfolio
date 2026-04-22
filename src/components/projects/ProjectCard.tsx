@@ -22,14 +22,14 @@ type ProjectCardProps = {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { slug, title, shortDescription, tags, status, repoUrl, demoUrl, imageUrl } = project
+  const { slug, title, shortDescription, tags, status, repoUrl, demoUrl, cardCover } = project
 
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-bg-card transition-colors hover:border-accent/40">
       <Link href={`/proyectos/${slug}`} className="block">
         <div className="relative h-48 w-full bg-bg-secondary">
-          {imageUrl ? (
-            <Image src={imageUrl} alt={title} fill className="object-cover" />
+          {cardCover ? (
+            <Image src={cardCover} alt={title} fill className="object-cover" />
           ) : (
             <div className="flex h-full items-center justify-center">
               <span className="text-4xl font-bold text-border">

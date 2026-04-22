@@ -2,17 +2,23 @@ import { Project } from "@/types"
 
 export const projects: Project[] = [
   {
-    slug: "whatsapp-bot",
-    title: "WhatsApp Bot",
+    slug: "whatsapp-agend-ai",
+    title: "Sistema de Agendamiento con IA (WhatsApp)",
     shortDescription:
-      "Bot automatizado para WhatsApp con respuestas inteligentes y gestión de comandos personalizados.",
+      "Asistente conversacional para WhatsApp impulsado por Gemini AI, diseñado para automatizar el agendamiento de citas mediante lenguaje natural.",
     fullDescription:
-      "Bot desarrollado con Node.js y la librería Baileys para automatizar respuestas en WhatsApp. Incluye sistema de comandos, respuestas contextuales y persistencia de sesión. Diseñado para casos de uso de atención al cliente y automatización de tareas repetitivas.",
-    tags: ["Node.js", "JavaScript", "WhatsApp API", "Baileys"],
-    status: "completed",
-    repoUrl: "https://github.com/nvbezz",
-    imageUrl: "",
+      "Desarrollé este agente backend en Node.js integrando la Cloud API oficial de Meta vía Webhooks. A diferencia de los bots tradicionales basados en comandos rígidos, este sistema utiliza Gemini 2.5 Flash para entender el contexto del usuario, solicitar los datos faltantes (servicio, fecha, hora) y conversar de forma natural. Además, implementé una base de datos local con SQLite (better-sqlite3) para persistir el historial de cada chat y registrar las citas confirmadas de forma segura.",
+    tags: ["Node.js", "Express", "Meta Cloud API", "Gemini AI", "SQLite"],
+    status: "in-progress",
+    repoUrl: "https://github.com/nvbezz/whatsapp-agend-ai",
+    cardCover: "/images/projects/whatsapp-agend-ai/cover.jpg",
+    detailMediaUrl: "/images/projects/whatsapp-agend-ai/detail.gif",
+    gallery: [
+      "/images/projects/whatsapp-agend-ai/screenshot-1.jpeg",
+      "/images/projects/whatsapp-agend-ai/screenshot-2.jpeg",
+      "/images/projects/whatsapp-agend-ai/screenshot-3.jpeg",
+    ],
     featured: true,
-    date: "2025-01",
+    date: "2026-04",
   },
 ]

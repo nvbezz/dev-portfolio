@@ -7,7 +7,9 @@ export interface Project {
   status: "completed" | "in-progress" | "archived"
   repoUrl: string
   demoUrl?: string
-  imageUrl: string
+  cardCover?: string
+  detailMediaUrl?: string
+  gallery?: string[]
   featured: boolean
   date: string
 }

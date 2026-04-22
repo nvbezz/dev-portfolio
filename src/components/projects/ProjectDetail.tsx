@@ -1,9 +1,13 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ExternalLink } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
 import { Project } from "@/types"
 import { Badge } from "@/components/ui/Badge"
+import { GalleryLightbox } from "@/components/projects/GalleryLightbox"
 
 const statusLabel: Record<Project["status"], string> = {
   completed: "Completado",
@@ -22,7 +26,8 @@ type ProjectDetailProps = {
 }
 
 export const ProjectDetail = ({ project }: ProjectDetailProps) => {
-  const { title, fullDescription, tags, status, repoUrl, demoUrl, imageUrl, date } = project
+  const { title, fullDescription, tags, status, repoUrl, demoUrl, detailMediaUrl, gallery, date } = project
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
@@ -33,17 +38,11 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
         <ArrowLeft size={16} /> Volver a proyectos
       </Link>
 
-      <div className="relative mb-8 h-64 w-full overflow-hidden rounded-xl bg-bg-secondary sm:h-80">
-        {imageUrl ? (
-          <Image src={imageUrl} alt={title} fill className="object-cover" />
-        ) : (
-          <div className="flex h-full items-center justify-center">
-            <span className="text-6xl font-bold text-border">
-              {title.slice(0, 2).toUpperCase()}
-            </span>
-          </div>
-        )}
-      </div>
+      {detailMediaUrl && (
+        <div className="relative mb-8 h-64 w-full overflow-hidden rounded-xl bg-bg-secondary sm:h-80">
+          <Image src={detailMediaUrl} alt={title} fill className="object-cover" />
+        </div>
+      )}
 
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <span className={`text-sm font-medium ${statusColor[status]}`}>
@@ -85,6 +84,28 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
           </a>
         )}
       </div>
+
+      {gallery && gallery.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+          {gallery.map((src, i) => (
+            <button
+              key={i}
+              className="relative h-48 w-full overflow-hidden rounded-xl bg-bg-secondary cursor-zoom-in"
+              onClick={() => setLightboxIndex(i)}
+            >
+              <Image src={src} alt={`${title} screenshot ${i + 1}`} fill className="object-cover transition-transform duration-300 hover:scale-105" />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {lightboxIndex !== null && gallery && (
+        <GalleryLightbox
+          images={gallery}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </article>
   )
 }
