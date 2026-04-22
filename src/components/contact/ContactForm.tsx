@@ -119,7 +119,7 @@ export const ContactForm = () => {
           className={!turnstileToken || state === "loading" ? "opacity-60 cursor-not-allowed" : ""}
         >
           <Send size={16} />
-          {state === "loading" ? "Enviando..." : "Enviar mensaje"}
+          {!turnstileToken ? "Preparando formulario..." : state === "loading" ? "Enviando..." : "Enviar mensaje"}
         </Button>
       </div>
     </form>
