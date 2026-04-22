@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Class-based dark mode: next-themes injects .dark on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/*
+  Two-layer variable system:
+  - @theme references var(--tw-*) so Tailwind emits var() in utilities (dynamic)
+  - @layer base defines the actual values per theme (light / dark)
+*/
+@theme {
+  --color-bg-primary: var(--tw-bg-primary);
+  --color-bg-secondary: var(--tw-bg-secondary);
+  --color-bg-card: var(--tw-bg-card);
+  --color-text-primary: var(--tw-text-primary);
+  --color-text-muted: var(--tw-text-muted);
+  --color-accent: var(--tw-accent);
+  --color-accent-hover: var(--tw-accent-hover);
+  --color-border: var(--tw-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --tw-bg-primary: #fafafa;
+    --tw-bg-secondary: #f5f5f5;
+    --tw-bg-card: #ebebeb;
+    --tw-text-primary: #0a0a0a;
+    --tw-text-muted: #6b7280;
+    --tw-accent: #6366f1;
+    --tw-accent-hover: #4f46e5;
+    --tw-border: #e5e7eb;
+  }
+
+  .dark {
+    --tw-bg-primary: #0a0a0a;
+    --tw-bg-secondary: #111111;
+    --tw-bg-card: #161616;
+    --tw-text-primary: #e5e5e5;
+    --tw-text-muted: #a3a3a3;
+    --tw-accent: #6366f1;
+    --tw-accent-hover: #4f46e5;
+    --tw-border: #262626;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--tw-bg-primary);
+  color: var(--tw-text-primary);
+  transition: background-color 0.2s, color 0.2s;
 }
