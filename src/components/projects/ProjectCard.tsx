@@ -22,7 +22,7 @@ type ProjectCardProps = {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { slug, title, shortDescription, tags, status, repoUrl, demoUrl, cardCover } = project
+  const { slug, title, shortDescription, tags, status, repoUrl, demoUrl, demoLabel, cardCover } = project
 
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-bg-card transition-colors hover:border-accent/40">
@@ -77,9 +77,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-sm text-text-muted transition-colors hover:text-text-primary"
-              aria-label="Demo"
+              aria-label={demoLabel ?? "Demo"}
             >
-              <ExternalLink size={15} /> Demo
+              <ExternalLink size={15} /> {demoLabel ?? "Demo"}
             </a>
           )}
         </div>

@@ -26,7 +26,7 @@ type ProjectDetailProps = {
 }
 
 export const ProjectDetail = ({ project }: ProjectDetailProps) => {
-  const { title, fullDescription, tags, status, repoUrl, demoUrl, detailMediaUrl, gallery, date } = project
+  const { title, fullDescription, tags, status, repoUrl, demoUrl, demoLabel, detailMediaUrl, gallery, date } = project
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   return (
@@ -40,7 +40,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
 
       {detailMediaUrl && (
         <div className="relative mb-8 h-64 w-full overflow-hidden rounded-xl bg-bg-secondary sm:h-80">
-          <Image src={detailMediaUrl} alt={title} fill className="object-cover" />
+          <Image src={detailMediaUrl} alt={title} fill className="object-cover" unoptimized />
         </div>
       )}
 
@@ -80,7 +80,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm text-bg-primary transition-colors hover:bg-accent-hover"
           >
-            <ExternalLink size={16} /> Ver demo
+            <ExternalLink size={16} /> {demoLabel ?? "Ver demo"}
           </a>
         )}
       </div>
