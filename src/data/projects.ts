@@ -27,7 +27,7 @@ export const projects: Project[] = [
     shortDescription:
       "CLI en TypeScript que empaqueta cualquier repositorio local en un único archivo XML estructurado, optimizado para ser consumido por LLMs como Claude, ChatGPT o Gemini.",
     fullDescription:
-      "Desarrollé reposhot como una alternativa minimalista a herramientas similares, con solo 2 dependencias de producción frente a las 25+ que tienen competidores directos. La herramienta recorre el árbol de directorios de forma síncrona, respeta .gitignore y patrones personalizados via minimatch, detecta archivos binarios por inspección de bytes nulos, y genera un XML con metadata completa del repositorio incluyendo conteo real de tokens usando tiktoken con el encoding cl100k_base. Incluye CI/CD con GitHub Actions, suite de tests con node:test nativo y está publicado en npm. El proyecto sigue activo y próximamente recibirá nuevas funcionalidades.",
+      "Desarrollé reposhot como una alternativa minimalista a herramientas similares, con solo 2 dependencias de producción frente a las 25+ que tienen competidores directos. La herramienta recorre el árbol de directorios de forma síncrona, respeta .gitignore y patrones personalizados via minimatch, detecta archivos binarios por inspección de bytes nulos, y genera un XML con metadata completa del repositorio incluyendo conteo real de tokens usando tiktoken con el encoding cl100k_base. Incluye CI/CD con GitHub Actions, suite de tests con node:test nativo y está publicado en npm. La v1.1.0 incorpora mejoras de seguridad: detección de secrets con --check-secrets, protección contra symlinks externos y validación del path de salida.",
     tags: [
       "TypeScript",
       "Node.js",
